@@ -28,7 +28,7 @@ addEventListener('mousedown', (e) => {
 });
 
 function setup() {
-  
+
 }
 
 function draw() {
@@ -51,20 +51,16 @@ function draw() {
 }
 
 function setSelected(newSelected) {
-  if(newSelected == selected)
-    return;
-  
-  if(oldSelected != null)
-    oldSelected.color = '#fff';
+  if(newSelected != selected) {
+    
+    if(oldSelected != null) oldSelected.color = '#fff';
+    if(selected != null) oldSelected = selected;
 
-  if(selected != null)
-    oldSelected = selected;
-  
-  
-  selected = newSelected;
+    selected = newSelected;
+  }
 
-  selected.color = '#3f3';
-  oldSelected.color = '#7f7';
+  if(selected != null) selected.color = '#3f3';
+  if(oldSelected != null) oldSelected.color = '#7f7';
 }
 
 setup();
