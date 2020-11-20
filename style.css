@@ -1,0 +1,44 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: grid;
+  place-items: center;
+
+  background-color: #212121;
+}
+
+canvas.hover {
+  cursor: pointer;
+}
+
+#toolbar {
+  position: fixed;
+  display: inline;
+
+  background-color: #111111;
+  border-radius: 8px;
+  
+  bottom: 16px;
+
+  padding: 16px;
+}
+
+.btn {
+  background-color: #00000000;
+  border: none;
+  border-radius: 4px;
+
+  padding: 0;
+}
+
+.btn img {
+  padding: 8px;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: #000000c4;
+}
