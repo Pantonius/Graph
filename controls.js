@@ -1,6 +1,27 @@
+const btnHide = document.getElementById('hide');
+
+const toolbar = document.getElementById('toolbar');
 const btnVertex = document.getElementById('vertex');
 const btnEdge = document.getElementById('edge');
 
+const btnOrganize = document.getElementById('organize');
+
+const info = document.getElementById('info');
+
+// Hide
+btnHide.addEventListener('click', () => {
+  if(btnHide.innerText === 'visibility') {
+    btnHide.innerText = 'visibility_off';
+    toolbar.style.visibility = 'hidden';
+    info.style.visibility = 'hidden';
+  } else if(btnHide.innerText === 'visibility_off') {
+    btnHide.innerText = 'visibility';
+    toolbar.style.visibility = 'visible';
+    info.style.visibility = 'visible';
+  };
+});
+
+// Drag + Drop Toolbar
 btnVertex.addEventListener('dragstart', dragstartHandler);
 
 function dragstartHandler(e) {
@@ -21,7 +42,15 @@ canvas.addEventListener('drop', (e) => {
   }
 });
 
-btnEdge.addEventListener('mousedown', (e) => {
+canvas.addEventListener('dragover', (e) => {
+  e.preventDefault();
+
+  e.dataTransfer.dropEffect = "move";
+});
+
+
+// Click Edge Toolbar
+btnEdge.addEventListener('click', () => {
   if(oldSelected != null && selected != null) {
     let newEdge = new Edge(oldSelected, selected);
     for(let edge of edges) {
@@ -33,8 +62,17 @@ btnEdge.addEventListener('mousedown', (e) => {
   }
 });
 
-canvas.addEventListener('dragover', (e) => {
-  e.preventDefault();
+// Organize Graph
+btnOrganize.addEventListener('click', () => {
+  for(let i = 0; i < verticies.length; i++) {
+    let posVar = ((2 * Math.PI) / verticies.length) * i;
+    let factor = (canvas.height / 2) * .6;
 
-  e.dataTransfer.dropEffect = "move";
+    let x = Math.cos(posVar) * factor;
+    let y = Math.sin(posVar) * factor;
+
+    verticies[i].pos = new Vector(x + canvas.width / 2, y + canvas.height / 2);
+
+    console.log(x, y);
+  }
 });

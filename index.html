@@ -4,15 +4,22 @@
     <title>Graph</title>
 
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
+    <button class="material-icons md-36" id="hide">visibility</button>
+
     <canvas></canvas>
     <div id="toolbar">
       <button class="btn"><image id="vertex" src="./img/vertex.png" draggable="true"/></button>
       <button class="btn"><image id="edge" src="./img/edge.png" draggable="false"/></button>
+
+      <div style="display: inline; margin-left: 8px;">
+        <button class="btn text" id="organize">Organize</button>
+      </div>
     </div>
     <div id="info">
       <h1>Instructions</h1>

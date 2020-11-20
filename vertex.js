@@ -25,7 +25,7 @@ class Vertex {
     ctx.font = "bold 24px 'Arial'";
     ctx.textBaseline = 'middle';
     ctx.textAlign = 'center';
-    ctx.fillStyle = '#424242';
+    ctx.fillStyle = '#000';
     ctx.fillText(this.label, this.pos.x, this.pos.y);
   }
 
