@@ -116,27 +116,36 @@ kbd {
   background-color: #000000c4;
 }
 
-.btn.text {
-  padding: 2px;
-
-  background-color: #ffffff;
-  text-align: center;
-}
-
-.btn.text:hover {
-  color: white;
-  background-color: #000000c4;
-}
-
-#hide {
+#top-toolbar {
   position: fixed;
   display: block;
 
-  cursor: pointer;
-
-  color: white;
-
   top: 16px;
   left: 16px;
+}
+
+#top-toolbar button {
+  cursor: pointer;
+  color: #fff;
+
+  background-color: transparent;
+  border-style: none;
+
+  font-size: 36px;
+
   padding: 2px;
+  margin-right: 4em;
+}
+
+#top-toolbar button:hover {
+  color: #ddd;
+}
+
+#top-toolbar button#organize {
+  background-color: #fff;
+  color: #000;
+}
+
+#top-toolbar button#organize:hover {
+  background-color: #ddd;
 }

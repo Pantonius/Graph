@@ -10,16 +10,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <button class="material-icons md-36" id="hide">visibility</button>
+    <div id="top-toolbar">
+      <button class="material-icons" id="hide">visibility</button>
+      <button id="organize">Organize</button>
+    </div>
 
     <canvas></canvas>
     <div id="toolbar">
       <button class="btn"><image id="vertex" src="./img/vertex.png" draggable="true"/></button>
       <button class="btn"><image id="edge" src="./img/edge.png" draggable="false"/></button>
-
-      <div style="display: inline; margin-left: 8px;">
-        <button class="btn text" id="organize">Organize</button>
-      </div>
     </div>
     <div id="info">
       <h1>Instructions</h1>
@@ -29,7 +28,10 @@
       Pull a node from the toolbar into the canvas<br>
       <br>
       <h4>Label a node:</h4>
-      Select a node with <kbd>Left Mouse</kbd> and type a name on your keyboard
+      Select a node with <kbd>Left Mouse</kbd> and type a name on your keyboard<br>
+      <br>
+      <h4>Organize the nodes:</h4>
+      Click the organize button in the upper-left corner
       
       <h3>Edges</h3>
       <h4>Add an edge:</h4>

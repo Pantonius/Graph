@@ -1,6 +1,6 @@
 const btnHide = document.getElementById('hide');
 
-const toolbar = document.getElementById('toolbar');
+const divToolbar = document.getElementById('toolbar');
 const btnVertex = document.getElementById('vertex');
 const btnEdge = document.getElementById('edge');
 
@@ -12,11 +12,11 @@ const info = document.getElementById('info');
 btnHide.addEventListener('click', () => {
   if(btnHide.innerText === 'visibility') {
     btnHide.innerText = 'visibility_off';
-    toolbar.style.visibility = 'hidden';
+    divToolbar.style.visibility = 'hidden';
     info.style.visibility = 'hidden';
   } else if(btnHide.innerText === 'visibility_off') {
     btnHide.innerText = 'visibility';
-    toolbar.style.visibility = 'visible';
+    divToolbar.style.visibility = 'visible';
     info.style.visibility = 'visible';
   };
 });
@@ -66,7 +66,7 @@ btnEdge.addEventListener('click', () => {
 btnOrganize.addEventListener('click', () => {
   for(let i = 0; i < verticies.length; i++) {
     let posVar = ((2 * Math.PI) / verticies.length) * i;
-    let factor = (canvas.height / 2) * .6;
+    let factor = (Math.min(canvas.height, canvas.width) / 2) * .6;
 
     let x = Math.cos(posVar) * factor;
     let y = Math.sin(posVar) * factor;
