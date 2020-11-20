@@ -22,10 +22,15 @@ class Vertex {
     ctx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI);
     ctx.fill();
 
-    ctx.font = "bold 24px 'Arial'";
+    let fontSize = 24;
+    ctx.font = "bold " + fontSize + "px 'Arial'";
     ctx.textBaseline = 'middle';
     ctx.textAlign = 'center';
     ctx.fillStyle = '#000';
+    
+    /*while(ctx.measureText(this.label).width > this.radius * 2) {
+      ctx.font = "bold " + fontSize + "px 'Arial'";
+    }*/
     ctx.fillText(this.label, this.pos.x, this.pos.y);
   }
 

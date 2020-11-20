@@ -21,6 +21,31 @@ btnHide.addEventListener('click', () => {
   };
 });
 
+// Vertex Label
+addEventListener('keypress', e => {
+  if(selected != null) {
+    selected.label += e.key;
+    e.preventDefault();
+  }
+});
+addEventListener('keydown', e => {
+  if(selected != null && e.code === 'Backspace') {
+    selected.label = selected.label.substring(0, selected.label.length -1);
+    e.preventDefault();
+  }
+});
+
+// Vertex coloring
+addEventListener('mousedown', (e) => {
+  if(e.target === canvas) {
+    if(oldSelected != null)
+      oldSelected.color = '#fff';
+
+    if(selected != null)
+      selected.color = '#fff';
+  }
+});
+
 // Drag + Drop Toolbar
 btnVertex.addEventListener('dragstart', dragstartHandler);
 

@@ -9,24 +9,6 @@ let edges = [];
 let oldSelected;
 let selected;
 
-addEventListener('keypress', e => {
-  if(selected != null)
-    selected.label += e.key;
-});
-addEventListener('keydown', e => {
-  if(selected != null && e.code === 'Backspace')
-    selected.label = selected.label.substring(0, selected.label.length -1);
-});
-addEventListener('mousedown', (e) => {
-  if(e.target === canvas) {
-    if(oldSelected != null)
-      oldSelected.color = '#fff';
-
-    if(selected != null)
-      selected.color = '#fff';
-  }
-});
-
 function setup() {
 
 }
