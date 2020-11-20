@@ -8,7 +8,8 @@ class Vertex {
     this.hover = false;
     this.dragging = false;
 
-    this.label = 'Karl';
+    this.label = '';
+    this.color = '#fff';
 
     addEventListener('mousedown', (e) => this.mousedown(e.clientX, e.clientY));
     addEventListener('mouseup', () => this.mouseup());
@@ -16,12 +17,12 @@ class Vertex {
   }
 
   draw() {
-    ctx.fillStyle = '#fff';
+    ctx.fillStyle = this.color;
     ctx.beginPath();
     ctx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI);
     ctx.fill();
 
-    ctx.font = "bold 48px 'Arial'";
+    ctx.font = "bold 24px 'Arial'";
     ctx.textBaseline = 'middle';
     ctx.textAlign = 'center';
     ctx.fillStyle = '#424242';

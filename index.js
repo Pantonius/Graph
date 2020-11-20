@@ -6,17 +6,29 @@ canvas.height = window.innerHeight;
 
 let verticies = [];
 let edges = [];
+let oldSelected;
 let selected;
 
-function setup() {
-  let vertex1 = new Vertex(canvas.width / 3, canvas.height / 2, 40);
-  let vertex2 = new Vertex(canvas.width - canvas.width / 3, canvas.height / 2, 40);
-  let vertex3 = new Vertex((canvas.width / 5) * 3, canvas.height / 3, 40);
-  let vertex4 = new Vertex(canvas.width - (canvas.width / 5) * 3, canvas.height - canvas.height / 3, 40);
-  let vertex5 = new Vertex(canvas.width - canvas.width / 10, canvas.height - (canvas.height / 5) * 2, 40);
+addEventListener('keypress', e => {
+  if(selected != null)
+    selected.label += e.key;
+});
+addEventListener('keydown', e => {
+  if(selected != null && e.code === 'Backspace')
+    selected.label = selected.label.substring(0, selected.label.length -1);
+});
+addEventListener('mousedown', (e) => {
+  if(e.target === canvas) {
+    if(oldSelected != null)
+      oldSelected.color = '#fff';
 
-  verticies.push(vertex1, vertex2, vertex3, vertex4, vertex5);
-  edges.push(new Edge(vertex1, vertex2), new Edge(vertex1, vertex3), new Edge(vertex1, vertex4), new Edge(vertex2, vertex3), new Edge(vertex2, vertex4), new Edge(vertex2, vertex5), new Edge(vertex3, vertex5));
+    if(selected != null)
+      selected.color = '#fff';
+  }
+});
+
+function setup() {
+  
 }
 
 function draw() {
@@ -30,12 +42,29 @@ function draw() {
   let hover = false;
   for(let vertex of verticies) {
     if(vertex.hover) hover = true;
-    if(vertex.dragging) selected = vertex;
+    if(vertex.dragging) setSelected(vertex);
 
     vertex.draw();
   }
 
   canvas.classList.toggle('hover', hover);
+}
+
+function setSelected(newSelected) {
+  if(newSelected == selected)
+    return;
+  
+  if(oldSelected != null)
+    oldSelected.color = '#fff';
+
+  if(selected != null)
+    oldSelected = selected;
+  
+  
+  selected = newSelected;
+
+  selected.color = '#3f3';
+  oldSelected.color = '#7f7';
 }
 
 setup();

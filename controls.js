@@ -1,4 +1,5 @@
 const btnVertex = document.getElementById('vertex');
+const btnEdge = document.getElementById('edge');
 
 btnVertex.addEventListener('dragstart', dragstartHandler);
 
@@ -16,6 +17,13 @@ canvas.addEventListener('drop', (e) => {
 
   if(id === btnVertex.id) {
     verticies.push(new Vertex(e.clientX - rect.left, e.clientY - rect.top, 40));
+    setSelected(verticies[verticies.length -1]);
+  }
+});
+
+btnEdge.addEventListener('mousedown', (e) => {
+  if(oldSelected != null && selected != null) {
+    edges.push(new Edge(oldSelected, selected));
   }
 });
 
