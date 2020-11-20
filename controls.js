@@ -23,7 +23,13 @@ canvas.addEventListener('drop', (e) => {
 
 btnEdge.addEventListener('mousedown', (e) => {
   if(oldSelected != null && selected != null) {
-    edges.push(new Edge(oldSelected, selected));
+    let newEdge = new Edge(oldSelected, selected);
+    for(let edge of edges) {
+      if((edge.vertex1 === newEdge.vertex1 && edge.vertex2 === newEdge.vertex2) || (edge.vertex2 === newEdge.vertex1 && edge.vertex1 === newEdge.vertex2))
+        return;
+    }
+
+    edges.push(newEdge);
   }
 });
 
