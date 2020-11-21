@@ -43,22 +43,5 @@ function draw() {
   canvas.classList.toggle('hover', hover);
 }
 
-function setSelected(newSelected) {
-  if(newSelected != selected) {
-    
-    if(oldSelected != null) oldSelected.color = '#fff';
-    if(selected != null) oldSelected = selected;
-
-    selected = newSelected;
-  }
-
-  if(selected != null) selected.color = '#3f3';
-  if(oldSelected != null) oldSelected.color = '#7f7';
-}
-
-function vertexSize() {
-  return Math.min(canvas.width, canvas.height) / 45 + 20;
-}
-
 setup();
 draw();

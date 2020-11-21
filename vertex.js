@@ -10,6 +10,7 @@ class Vertex {
 
     this.label = '';
     this.color = '#fff';
+    this.fontColor = '#000';
 
     addEventListener('mousedown', (e) => this.mousedown(e.clientX, e.clientY));
     addEventListener('mouseup', () => this.mouseup());
@@ -26,13 +27,28 @@ class Vertex {
     ctx.font = "bold " + fontSize + "px 'Arial'";
     ctx.textBaseline = 'middle';
     ctx.textAlign = 'center';
-    ctx.fillStyle = '#000';
+    ctx.fillStyle = this.fontColor;
     
     while(ctx.measureText(this.label).width > this.radius * 2) {
       fontSize--;
       ctx.font = "bold " + fontSize + "px 'Arial'";
     }
     ctx.fillText(this.label, this.pos.x, this.pos.y);
+  }
+
+  select() {
+    this.color = '#65ec70';
+    this.fontColor = '#fff';
+  }
+
+  selectSecondary() {
+    this.color = '#aaf6a7';
+    this.fontColor = '#000';
+  }
+
+  deselect() {
+    this.color = '#fff';
+    this.fontColor = '#000';
   }
 
   checkHit(x, y) {

@@ -46,11 +46,9 @@ addEventListener('keydown', e => {
 // Vertex coloring
 addEventListener('mousedown', (e) => {
   if(e.target === canvas) {
-    if(oldSelected != null)
-      oldSelected.color = '#fff';
+    if(oldSelected != null) oldSelected.deselect();
 
-    if(selected != null)
-      selected.color = '#fff';
+    if(selected != null) selected.deselect();
   }
 });
 
@@ -107,3 +105,21 @@ btnOrganize.addEventListener('click', () => {
     verticies[i].pos = new Vector(x + canvas.width / 2, y + canvas.height / 2);
   }
 });
+
+// FUNCTIONS
+function setSelected(newSelected) {
+  if(newSelected != selected) {
+    
+    if(oldSelected != null) oldSelected.deselect();
+    if(selected != null) oldSelected = selected;
+
+    selected = newSelected;
+  }
+
+  if(selected != null) selected.select();
+  if(oldSelected != null) oldSelected.selectSecondary();
+}
+
+function vertexSize() {
+  return Math.min(canvas.width, canvas.height) / 45 + 20;
+}
