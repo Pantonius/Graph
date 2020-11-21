@@ -11,15 +11,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <div id="top-toolbar">
-      <button class="material-icons" id="hide">visibility</button>
-      <button id="organize">Organize</button>
-    </div>
-
     <canvas></canvas>
-    <div id="toolbar">
-      <button class="btn"><image id="vertex" src="./img/vertex.png" draggable="true"/></button>
-      <button class="btn"><image id="edge" src="./img/edge.png" draggable="false"/></button>
+    
+    <div class="toolbar" id="icon-toolbar">
+      <button class="material-icons" id="hide">visibility</button>
+    </div>
+    <div id="toolbar-container">
+      <div class="toolbar" id="toolbar">
+        <button class="btn"><image id="vertex" src="./img/vertex.png" draggable="true"/></button>
+        <button class="btn"><image id="edge" src="./img/edge.png" draggable="false"/></button>
+      </div>
+      <div class="toolbar" id="button-toolbar">
+        <button id="organize">Organize</button>
+      </div>
     </div>
     <div id="info">
       <h1>Instructions</h1>

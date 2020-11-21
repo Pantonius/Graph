@@ -52,6 +52,7 @@ h1, h2, h3 {
 
   color: #000;
   background-color: #fff;
+  box-shadow: 6px -5px #000;
 }
 
 h4 {
@@ -75,14 +76,19 @@ kbd {
   background-color: #fff;
 }
 
+.toolbar button {
+  background-color: transparent;
+  border-style: none;
+
+  cursor: pointer;
+}
+
 #toolbar {
-  position: fixed;
-  display: inline;
+  position: relative;
+  display: inline-block;
 
   background-color: #111111;
   border-radius: 8px;
-  
-  bottom: 16px;
 
   padding: 16px;
 }
@@ -112,11 +118,10 @@ kbd {
 }
 
 .btn:hover {
-  cursor: pointer;
   background-color: #000000c4;
 }
 
-#top-toolbar {
+#icon-toolbar {
   position: fixed;
   display: block;
 
@@ -124,28 +129,49 @@ kbd {
   left: 16px;
 }
 
-#top-toolbar button {
-  cursor: pointer;
+#icon-toolbar button {
   color: #fff;
-
-  background-color: transparent;
-  border-style: none;
 
   font-size: 36px;
 
   padding: 2px;
-  margin-right: 4em;
 }
 
-#top-toolbar button:hover {
+#icon-toolbar button:hover {
   color: #ddd;
 }
 
-#top-toolbar button#organize {
-  background-color: #fff;
-  color: #000;
+#button-toolbar {
+  position: relative;
+  display: inline-block;
 }
 
-#top-toolbar button#organize:hover {
+#button-toolbar button {
+  font-size: 24px;
+}
+
+#button-toolbar button#organize {
+  background-color: #fff;
+  color: #000;
+  
+  box-shadow: 5px 10px #000;
+}
+
+#button-toolbar button#organize:hover {
   background-color: #ddd;
+}
+
+#button-toolbar button#organize:active {
+  box-shadow: 3px 5px #000;
+}
+
+#toolbar-container {
+  position: fixed;
+  bottom: 16px;
+
+  display: inline-block;
+}
+
+#toolbar-container .toolbar {
+  margin: 0 16px;
 }
