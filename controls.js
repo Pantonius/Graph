@@ -1,23 +1,30 @@
 const btnHide = document.getElementById('hide');
 
 const divToolbar = document.getElementById('toolbar');
+const divToolbarContainer = document.getElementById('toolbar-container');
+const divInfo = document.getElementById('info');
+
 const btnVertex = document.getElementById('vertex');
 const btnEdge = document.getElementById('edge');
 
 const btnOrganize = document.getElementById('organize');
 
-const info = document.getElementById('info');
-
 // Hide
 btnHide.addEventListener('click', () => {
   if(btnHide.innerText === 'visibility') {
     btnHide.innerText = 'visibility_off';
+
+    divToolbarContainer.style.right = '16px';
+
     divToolbar.style.visibility = 'hidden';
-    info.style.visibility = 'hidden';
+    divInfo.style.visibility = 'hidden';
   } else if(btnHide.innerText === 'visibility_off') {
     btnHide.innerText = 'visibility';
+
+    divToolbarContainer.style.right = 'auto';
+
     divToolbar.style.visibility = 'visible';
-    info.style.visibility = 'visible';
+    divInfo.style.visibility = 'visible';
   };
 });
 
