@@ -70,7 +70,7 @@ canvas.addEventListener('drop', (e) => {
   let rect = canvas.getBoundingClientRect();
 
   if(id === btnVertex.id) {
-    verticies.push(new Vertex(e.clientX - rect.left, e.clientY - rect.top, Math.min(canvas.width, canvas.height) / 50 + 30));
+    verticies.push(new Vertex(e.clientX - rect.left, e.clientY - rect.top, vertexSize()));
     setSelected(verticies[verticies.length -1]);
   }
 });
@@ -105,7 +105,5 @@ btnOrganize.addEventListener('click', () => {
     let y = Math.sin(posVar) * factor;
 
     verticies[i].pos = new Vector(x + canvas.width / 2, y + canvas.height / 2);
-
-    console.log(x, y);
   }
 });

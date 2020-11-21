@@ -4,6 +4,17 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+addEventListener('resize', (e) => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  btnOrganize.click();
+
+  for(let vertex of verticies) {
+    vertex.radius = vertexSize();
+  }
+});
+
 let verticies = [];
 let edges = [];
 let oldSelected;
@@ -43,6 +54,10 @@ function setSelected(newSelected) {
 
   if(selected != null) selected.color = '#3f3';
   if(oldSelected != null) oldSelected.color = '#7f7';
+}
+
+function vertexSize() {
+  return Math.min(canvas.width, canvas.height) / 45 + 20;
 }
 
 setup();
