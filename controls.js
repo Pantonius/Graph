@@ -10,6 +10,7 @@ const btnEdge = document.getElementById('edge');
 const btnOrganize = document.getElementById('organize');
 
 // Hide
+const stanVisInfo = divInfo.style.visibility;
 btnHide.addEventListener('click', () => {
   if(btnHide.innerText === 'visibility') {
     btnHide.innerText = 'visibility_off';
@@ -24,7 +25,7 @@ btnHide.addEventListener('click', () => {
     divToolbarContainer.style.right = 'auto';
 
     divToolbar.style.visibility = 'visible';
-    divInfo.style.visibility = 'visible';
+    divInfo.style.visibility = stanVisInfo;
   };
 });
 
@@ -69,7 +70,7 @@ canvas.addEventListener('drop', (e) => {
   let rect = canvas.getBoundingClientRect();
 
   if(id === btnVertex.id) {
-    verticies.push(new Vertex(e.clientX - rect.left, e.clientY - rect.top, 40));
+    verticies.push(new Vertex(e.clientX - rect.left, e.clientY - rect.top, Math.min(canvas.width, canvas.height) / 50 + 30));
     setSelected(verticies[verticies.length -1]);
   }
 });

@@ -28,9 +28,10 @@ class Vertex {
     ctx.textAlign = 'center';
     ctx.fillStyle = '#000';
     
-    /*while(ctx.measureText(this.label).width > this.radius * 2) {
+    while(ctx.measureText(this.label).width > this.radius * 2) {
+      fontSize--;
       ctx.font = "bold " + fontSize + "px 'Arial'";
-    }*/
+    }
     ctx.fillText(this.label, this.pos.x, this.pos.y);
   }
 
