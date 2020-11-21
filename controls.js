@@ -37,8 +37,12 @@ addEventListener('keypress', e => {
   }
 });
 addEventListener('keydown', e => {
+  console.log(e.code)
   if(selected != null && e.code === 'Backspace') {
     selected.label = selected.label.substring(0, selected.label.length -1);
+    e.preventDefault();
+  } else if(selected != null && e.code === 'Delete') {
+    selected.delete();
     e.preventDefault();
   }
 });
@@ -108,8 +112,18 @@ btnOrganize.addEventListener('click', () => {
 
 // FUNCTIONS
 function setSelected(newSelected) {
+  if(newSelected === null) {
+    if(oldSelected != null) {
+      selected = oldSelected;
+      selected.select();
+    } else {
+      selected = null;
+    }
+
+    oldSelected = null;
+  }
+
   if(newSelected != selected) {
-    
     if(oldSelected != null) oldSelected.deselect();
     if(selected != null) oldSelected = selected;
 

@@ -98,8 +98,12 @@ kbd {
   display: inline;
 
   width: 20vw;
+  height: calc(100vh - 32px);
+  padding-right: 12px;
+
   font-family: Arial, Helvetica, sans-serif;
   color: white;
+  overflow: auto;
 
   top: 16px;
   right: 16px;
@@ -180,7 +184,7 @@ kbd {
   margin: 0 16px;
 }
 
-@media only screen and (max-width: 940px) {
+@media only screen and (max-width: 1024px) {
   #info {
     visibility: hidden;
   }
